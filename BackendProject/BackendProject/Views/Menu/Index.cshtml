@@ -1,0 +1,67 @@
+﻿@model MenuPageViewModels
+@{
+	ViewData["Title"] = "Menu Page";
+}
+links{
+<link rel="stylesheet" href="~/assets/css/menu.css" />
+
+}
+<!-- about home start -->
+<section class="about-home">
+	<div class="about-header">
+		<h2>cafena menu</h2>
+		<div>
+			<ul>
+				<li class="breadcrumb-begin">
+					<a href="index.html">home</a>
+				</li>
+				<li></li>
+				<li class="breadcrumb-end">
+					<a href="menu.html">menu</a>
+				</li>
+			</ul>
+		</div>
+	</div>
+</section>
+<!-- about  home end -->
+<!-- menu product filter start -->
+
+<div class="bg-menu">
+	<div class="menu-title">
+		<section>menu</section>
+		<h2>CAFENA POPULAR MENU</h2>
+		<hr />
+	</div>
+	<div id="categories">
+		<a class="categoryBtn" data-id="All">All (@Model.Menus.Count)</a>
+		@foreach (var menuCategory in Model.MenuCategories)
+		{
+			<a class="categoryBtn" data-id="@menuCategory.Id">@menuCategory.Name (@menuCategory.Menus.Count)</a>
+		}
+	</div>
+	<div class="menu-flex">
+		@foreach (var menu in Model.Menus)
+		{
+			<div class="menu1" data-id="@menu.MenuCategoryId">
+				<div class="small-image">
+					<img src="~/assets/images/@menu.Image" alt="" />
+				</div>
+				<div>
+					<h4>@menu.Name</h4>
+				</div>
+				<div class="line"></div>
+				<div>
+					<h4>$@menu.Price</h4>
+				</div>
+			</div>
+		}
+	</div>
+	<div class="menu-link">
+		<a href="#">view menu</a>
+	</div>
+</div>
+<!-- menu product filter end -->
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<script src="~/assets/js/menu.js"></script>
