@@ -1,0 +1,91 @@
+﻿@model Dictionary<string,string>
+
+
+<!-- footer section start -->
+
+<section class="footer">
+	<div class="footer1">
+		<div class="location-address">
+			<img src="~/assets/images/ft-phone.png" alt="" />
+			<span>PHONE :</span>
+			<a href=""> @Model["FooterPhoneNumber"]</a>
+		</div>
+		<div class="location-address">
+			<img src="~/assets/images/ft-map-marker.png" alt="" />
+			<span>ADDRESS :</span>
+			<a href=""> 30 North West New</a>
+		</div>
+		<form>
+			<input type="text" placeholder="Enter your email" />
+			<button class="footer-btn">
+				Subscribe
+				<i class="fas fa-paper-plane"></i>
+			</button>
+		</form>
+	</div>
+	<div class="footer2">
+		<div class="footer2-logo">
+			<img src="~/assets/images/logo.png" alt="" />
+			<p>
+				@Html.Raw(Model["FooterDescription"])
+			</p>
+		</div>
+		<div class="footer2-social">
+			<ul>
+				<li>
+					<a href="@Model["FacebookLink"]">
+						<i class="fa-brands fa-facebook"></i>
+					</a>
+				</li>
+				<li>
+					<a href="@Model["InstagramLink"]">
+						<i class="fa-brands fa-instagram"></i>
+					</a>
+				</li>
+				<li>
+					<a href=@Model["YoutubeLink"]">
+						<i class="fa-brands fa-youtube"></i>
+					</a>
+				</li>
+				<li>
+					<a href="@Model["GoogleLink"]">
+						<i class="fab fa-google"></i>
+					</a>
+				</li>
+				<li>
+					<a href="@Model["TwitterLink"]">
+						<i class="fab fa-twitter"></i>
+					</a>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<div class="footer3">
+		<ul>
+			<li>
+				<a aria-current="page" asp-controller="Home" asp-action="Index">home</a>
+			</li>
+			<li>
+				<a href="about.html">about</a>
+			</li>
+			<li>
+				<a href="menu.html">menu</a>
+			</li>
+			<li>
+				<a href="reservation.html">reservation</a>
+			</li>
+			<li>
+				<a href="">pages</a>
+			</li>
+			<li>
+				<a href="">shop</a>
+			</li>
+			<li>
+				<a href="contact.html">contact</a>
+			</li>
+		</ul>
+	</div>
+</section>
+
+<!-- footer  section end -->
+

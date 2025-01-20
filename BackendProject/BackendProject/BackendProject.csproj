@@ -7,6 +7,16 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Include="wwwroot\assets\Admin\fonts\.DS_Store" />
+    <None Include="wwwroot\assets\Admin\fonts\Roboto\.DS_Store" />
+    <None Include="wwwroot\assets\Admin\images\.DS_Store" />
+    <None Include="wwwroot\assets\Admin\images\auth\.DS_Store" />
+    <None Include="wwwroot\assets\Admin\images\faces\.DS_Store" />
+    <None Include="wwwroot\assets\Admin\js\.DS_Store" />
+    <None Include="wwwroot\assets\Admin\vendors\.DS_Store" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="MailKit" Version="4.9.0" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="9.0.1" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="9.0.1" />
@@ -16,6 +26,7 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="9.0.0" />
     <PackageReference Include="MimeKit" Version="4.9.0" />
   </ItemGroup>
 

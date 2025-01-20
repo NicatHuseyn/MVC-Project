@@ -1,8 +1,389 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
+﻿@using BackendProject.Models;
+@model HomeViewModel
+@{
+	Layout = null;
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Home Page</title>
+	<link rel="stylesheet" href="assets/css/style.css" />
+	<!-- font awesome cdn link -->
+	<script src="https://kit.fontawesome.com/88699d56f3.js"
+			crossorigin="anonymous"></script>
+	<!-- swipper cdn link -->
+	<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.css" />
+	<link rel="stylesheet"
+		  href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+</head>
+<body>
+	<!-- scroll top start -->
+	<div id="progress">
+		<span id="progress-value">&#x1F815;</span>
+	</div>
+	<!-- scroll top end -->
+	@await Component.InvokeAsync("Header2");
+
+	<!-- home section start -->
+	<section class="home" id="home">
+		<div class="content">
+			<h3>rosted coffee for you</h3>
+			<p>
+				The coffee is brewed by first roasting the green coffee beans over hot
+				<br />
+				coals in a brazier. given an opportunity to sample.
+			</p>
+			<a href="#" class="btn">read more</a>
+			<a href="#" class="btn">testy coffee</a>
+
+			<ul>
+				<li>
+					<i class="fa-brands fa-facebook"></i>
+					<span>facebook</span>
+				</li>
+				<li>
+					<i class="fa-brands fa-twitter"></i>
+					<span> twitter</span>
+				</li>
+				<li>
+					<i class="fa-brands fa-youtube"></i>
+					<span>youtube</span>
+				</li>
+			</ul>
+		</div>
+	</section>
+
+	<!-- home section end -->
+	<!-- cart section start -->
+	<div class="bg-service">
+		@foreach (var serviceItem in Model.Services)
+		{
+
+			<div class="service-one">
+				<img src="~/assets/images/@serviceItem.Image" alt="" />
+				<div class="overlay">
+					<div class="over-txt">
+						<span>@serviceItem.Number</span>
+						<h4>@serviceItem.Title</h4>
+						<p>
+							@serviceItem.Description
+						</p>
+					</div>
+				</div>
+			</div>
+		}
+
+	</div>
+	<!-- cart section end -->
+	<!-- about section start -->
+	<section class="about" id="about">
+		<h1 class="heading">
+			<span> about </span>
+			us
+		</h1>
+		<div class="row">
+			<div class="image">
+				<img src="~/assets/images/about-bg-3-1.jpeg" alt="" />
+			</div>
+			<div class="content">
+				<h3>CREATE A NEW STORY WITH US</h3>
+				<p>
+					Mauris rhoncus orci in imperdiet placerat. Vestibulum euismod nisl
+					suscipit ligula volutpat, a feugiat urna maximus. Cras massa
+					nibhtincidunt.
+				</p>
+				<p>
+					Donec et nibh maximus, congue est eu, mattis nunc. Praesent ut quam
+					quis quam venenatis fringilla. Morbi vestibulum id tellus mmodo
+					mattis. Aliquam erat volutpat.
+				</p>
+				<a aria-current="page" asp-controller="About" asp-action="Index" class="btn">learn more</a>
+			</div>
+		</div>
+	</section>
+	<!-- about section end -->
+	<!-- menu section start -->
+
+	<div class="bg-menu">
+		<div class="menu-title">
+			<section>menu</section>
+			<h2>CAFENA POPULAR MENU</h2>
+			<hr />
+		</div>
+		<div class="menu-flex">
+			@foreach (var menu in Model.Menus)
+			{
+
+				<div class="menu1">
+					<div class="small-image">
+						<img src="~/assets/images/@menu.Image" alt="" />
+					</div>
+					<div>
+						<h4>@menu.Name</h4>
+					</div>
+					<div class="line"></div>
+					<div>
+						<h4>@menu.Price</h4>
+					</div>
+				</div>
+			}
+
+		</div>
+		<div class="menu-link">
+			<a href="menu.html">view menu</a>
+		</div>
+	</div>
+
+	<!-- menu section end -->
+	<!-- product section start -->
+	<section class="bg-shop">
+		<div class="shop-links">
+			<div>
+				<h2>CAFENA POPULAR PRODUCT</h2>
+			</div>
+			<div class="links">
+				<button class="btn"><a aria-current="page" asp-controller="Shop" asp-action="Index">view all products</a></button>
+			</div>
+		</div>
+		<div class="shop-flex">
+			@await Component.InvokeAsync("Product");
+		</div>
+	</section>
+	<!-- product section end -->
+	<!-- modal section start -->
+	<div id="myModal" class="modal">
+		<div class="modal-content">
+			<div class="modal-img">
+				<img src="~/assets/images/pp-1.png" alt="" />
+			</div>
+			<div class="modal-text">
+				<h2>VICARAGUA COFFEE BEANS</h2>
+				<div class="modal-stars">
+					<i class="fa-solid fa-star"></i>
+					<i class="fa-solid fa-star"></i>
+					<i class="fa-solid fa-star"></i>
+					<i class="fa-solid fa-star"></i>
+					<i class="fa-regular fa-star"></i>
+				</div>
+				<h3><span>$</span>99.00</h3>
+				<h4>Available :<span> In stock</span></h4>
+				<p>
+					Anlor sit amet, consectetur adipiscing elit. Fusce condimentum est
+					lacus, non pretium risus lacinia vel. Fusce eget turpis orci.
+				</p>
+				<div class="modal-quantity">
+					<span>Quantity</span>
+					<input type="number" placeholder="1" />
+				</div>
+				<button class="btn-modal">ADD TO CART</button>
+			</div>
+			<a class="close"> <i class="fa-solid fa-xmark"></i> </a>
+		</div>
+	</div>
+	<!-- modal section end -->
+	<!-- slider section start -->
+	<section class="slider">
+		<div class="menu-title">
+			<section>customer feedback</section>
+			<h2>OUR CUSTOMER REVIEW</h2>
+		</div>
+		<div class="swiper-container">
+			<div class="swiper-wrapper">
+				@foreach (var sliderItem in Model.Sliders)
+				{
+
+					<div class="swiper-slide">
+						<div class="box">
+							<img src="~/assets/images/t-quote.png" alt="" class="quote" />
+							<p>
+								@sliderItem.Description
+							</p>
+							<img src="~/assets/images/@sliderItem.UserImage" alt="" class="user" />
+							<h4>@sliderItem.UserName</h4>
+							<span class="designation">@sliderItem.Designation</span>
+						</div>
+					</div>
+				}
+			</div>
+			<div class="swiper-pagination"></div>
+
+			<div class="swiper-button-prev"></div>
+
+			<div class="swiper-button-next"></div>
+		</div>
+	</section>
+	<!-- slider section end -->
+	<!-- reservation section start -->
+	<section class="contact" id="contact">
+		<div class="row">
+			<iframe class="map"
+					src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12157.96580566317!2d49.844708549999986!3d40.37579924999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40307d079efb5163%3A0xc20aa51a5f0b5e01!2sCode%20Academy!5e0!3m2!1str!2saz!4v1691186741447!5m2!1str!2saz"
+					allowfullscreen=""
+					loading="lazy"
+					referrerpolicy="no-referrer-when-downgrade"></iframe>
+			<form action="">
+				<h3>get in touch</h3>
+				<div class="inputBox">
+					<input type="text" placeholder="4 person" />
+					<span class="fas fa-user"></span>
+				</div>
+				<div class="inputBox">
+					<input type="time" placeholder="12.2.2021" />
+					<span class="fa-solid fa-calendar-days"></span>
+				</div>
+				<div class="inputBox">
+					<input type="datetime" placeholder="11:00 PM" />
+					<span class="fa-solid fa-clock"></span>
+				</div>
+				<input type="submit" value="contact now" class="btn" />
+			</form>
+		</div>
+	</section>
+	<!-- reservation section end -->
+	<!-- cart blog section start -->
+	<section class="blogs" id="blogs">
+		<h1 class="heading">
+			OUR
+			<span>NEWS & ARTICLES</span>
+		</h1>
+		<div class="box-container">
+			<div class="box">
+				<div class="image">
+					<img src="~/assets/images/blog-1.jpeg" alt="" />
+				</div>
+				<div class="content">
+					<a href="#" class="title">
+						Ideal Cocktails From Our Barmen For Pefect Mood
+					</a>
+					<span>BY: RASALINA \ LIFE \ 23.01.2017</span>
+
+					<a aria-current="page" asp-controller="Blog" asp-action="Index" class="btn">read more</a>
+				</div>
+			</div>
+			<div class="box">
+				<div class="image">
+					<img src="~/assets/images/blog-3.jpeg" alt="" />
+				</div>
+				<div class="content">
+					<a href="#" class="title">Build A Cool Mornig With Cafena Coffee Coffee</a>
+					<span>BY: RASALINA \ LIFE \ 23.01.2017</span>
+					<a aria-current="page" asp-controller="Blog" asp-action="Index" class="btn">read more</a>
+				</div>
+			</div>
+			<div class="box">
+				<div class="image">
+					<img src="~/assets/images/blog-2.jpeg" alt="" />
+				</div>
+				<div class="content">
+					<a href="#" class="title">
+						Questions Business Must Be Able To Answers
+					</a>
+					<span>BY: RASALINA \ LIFE \ 23.01.2017</span>
+					<a aria-current="page" asp-controller="Blog" asp-action="Index" class="btn">read more</a>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- cart blog section end -->
+	<!-- footer section start -->
+
+	@await Component.InvokeAsync("Footer");
+
+	@* <section class="footer"> *@
+	@* 	<div class="footer1"> *@
+	@* 		<divc class="location-address"> *@
+	@* 			<img src="~/assets/images/ft-phone.png" alt="" /> *@
+	@* 			<span>PHONE :</span> *@
+	@* 			<a href=""> +88019 339 702 520</a> *@
+	@* 		</divc> *@
+	@* 		<div class="location-address"> *@
+	@* 			<img src="~/assets/images/ft-map-marker.png" alt="" /> *@
+	@* 			<span>ADDRESS :</span> *@
+	@* 			<a href=""> 30 North West New</a> *@
+	@* 		</div> *@
+	@* 		<form> *@
+	@* 			<input type="text" placeholder="Enter your email" /> *@
+	@* 			<button class="footer-btn"> *@
+	@* 				Subscribe *@
+	@* 				<i class="fas fa-paper-plane"></i> *@
+	@* 			</button> *@
+	@* 		</form> *@
+	@* 	</div> *@
+	@* 	<div class="footer2"> *@
+	@* 		<div class="footer2-logo"> *@
+	@* 			<img src="~/assets/images/logo.png" alt="" /> *@
+	@* 			<p> *@
+	@* 				Donec et nibh maximus, congue est eu, mattis nunc. Praesent ut quam *@
+	@* 				quis quam <br /> *@
+	@* 				venenatis fringilla. Morbi vestibulum *@
+	@* 			</p> *@
+	@* 		</div> *@
+	@* 		<div class="footer2-social"> *@
+	@* 			<ul> *@
+	@* 				<li> *@
+	@* 					<a href=""> *@
+	@* 						<i class="fa-brands fa-facebook"></i> *@
+	@* 					</a> *@
+	@* 				</li> *@
+	@* 				<li> *@
+	@* 					<a href=""> *@
+	@* 						<i class="fa-brands fa-instagram"></i> *@
+	@* 					</a> *@
+	@* 				</li> *@
+	@* 				<li> *@
+	@* 					<a href=""> *@
+	@* 						<i class="fa-brands fa-youtube"></i> *@
+	@* 					</a> *@
+	@* 				</li> *@
+	@* 				<li> *@
+	@* 					<a href=""> *@
+	@* 						<i class="fab fa-google"></i> *@
+	@* 					</a> *@
+	@* 				</li> *@
+	@* 				<li> *@
+	@* 					<a href=""> *@
+	@* 						<i class="fab fa-twitter"></i> *@
+	@* 					</a> *@
+	@* 				</li> *@
+	@* 			</ul> *@
+	@* 		</div> *@
+	@* 	</div> *@
+	@* 	<div class="footer3"> *@
+	@* 		<ul> *@
+	@* 			<li> *@
+	@* 				<a href="index.html">home</a> *@
+	@* 			</li> *@
+	@* 			<li> *@
+	@* 				<a href="about.html">about</a> *@
+	@* 			</li> *@
+	@* 			<li> *@
+	@* 				<a href="">menu</a> *@
+	@* 			</li> *@
+	@* 			<li> *@
+	@* 				<a href="">reservation</a> *@
+	@* 			</li> *@
+	@* 			<li> *@
+	@* 				<a href="">pages</a> *@
+	@* 			</li> *@
+	@* 			<li> *@
+	@* 				<a href="">shop</a> *@
+	@* 			</li> *@
+	@* 			<li> *@
+	@* 				<a href="contact.html">contact</a> *@
+	@* 			</li> *@
+	@* 		</ul> *@
+	@* 	</div> *@
+	@* </section> *@
+
+	<!-- footer  section end -->
+	<script src="https://unpkg.com/swiper/swiper-bundle.js"></script>
+	<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+	<script src="~/assets/js/main.js"></script>
+	<script src="~/assets/js/shop.js"></script>
+</body>
+</html>

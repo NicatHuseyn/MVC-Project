@@ -1,0 +1,104 @@
+﻿@model ContactVM
+
+@{
+	ViewData["Title"] = "Contact Page";
+}
+links{
+<link rel="stylesheet" href="~/assets/css/contact.css" />
+}
+<section class="about-home">
+	<div class="about-header">
+		<h2>Get in touch</h2>
+		<div>
+			<ul>
+				<li class="breadcrumb-begin">
+					<a href="index.html">home</a>
+				</li>
+				<li></li>
+				<li class="breadcrumb-end">
+					<a href="about.html">contact</a>
+				</li>
+			</ul>
+		</div>
+	</div>
+</section>
+<!-- about  home end -->
+<!-- contact area start -->
+<section class="contact-registration-container">
+	<span class="shape1">
+		<img src="~/assets/images/hero-shape-2-1.png" alt="" />
+	</span>
+	<span class="shape2">
+		<img src="~/assets/images/hero-shape-2-2.png" alt="" />
+	</span>
+	<div class="contact-area-container">
+		<div class="location-container">
+			<div class="location-area">
+				<div class="location-img">
+					<img src="~/assets/images/ci-1.png" alt="" />
+				</div>
+				<div class="location-title">
+					<h3>Contact us</h3>
+					<p>
+						Israfilsupol836@gmail.com <br />
+						088 - 01869018907
+					</p>
+				</div>
+			</div>
+			<div class="location-area">
+				<div class="location-img">
+					<img src="~/assets/images/ci-2.png" alt="" />
+				</div>
+				<div class="location-title">
+					<h3>Our Location</h3>
+					<p>
+						Hera Road 2344-78 Australia <br />
+						897- South Side Melbon
+					</p>
+				</div>
+			</div>
+			<div class="location-area">
+				<div class="location-img">
+					<img src="~/assets/images/ci-3.png" alt="" />
+				</div>
+				<div class="location-title">
+					<h3>Opening HOurs</h3>
+					<p>
+						Mon - Sat (8:00 - 6:00) <br />
+						Sunday - Closed
+					</p>
+				</div>
+			</div>
+		</div>
+		<div class="form-container">
+			<form asp-controller="Contact" asp-action="Index" method="post">
+				<div class="form1">
+					<input type="text" asp-for="FullName" placeholder="your name:" />
+					<input type="text" asp-for="Email" placeholder="your mail:" />
+				</div>
+				<div class="form2">
+					<input type="text" asp-for="Subject" placeholder="enter your subject:" />
+				</div>
+				<div class="text-area-container">
+					<textarea name="message" asp-for="Message" placeholder="your message"></textarea>
+				</div>
+				<div class="contact-btn">
+					<button type="submit" class="btn-contact">send message</button>
+				</div>
+			</form>
+		</div>
+	</div>
+</section>
+
+<!-- contact area end -->
+<!-- contact map container start -->
+
+<section class="contact-map">
+	<iframe class="map"
+			src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12157.96580566317!2d49.844708549999986!3d40.37579924999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40307d079efb5163%3A0xc20aa51a5f0b5e01!2sCode%20Academy!5e0!3m2!1str!2saz!4v1691186741447!5m2!1str!2saz"
+			allowfullscreen=""
+			loading="lazy"
+			referrerpolicy="no-referrer-when-downgrade"></iframe>
+</section>
+<!-- contact map container end -->
+<script src="~/assets/js/contact.js"></script>

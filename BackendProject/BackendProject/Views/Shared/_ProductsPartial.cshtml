@@ -1,0 +1,27 @@
+﻿@model ShopViewModel
+
+@foreach (var product in Model.Products)
+{
+	<div class="shop-item">
+		<div class="shop-icons">
+			<i cart-id="@product.Id" class="fas fa-shopping-basket"></i>
+			<i class="fas fa-heart"></i>
+			<i class="fas fa-eye"></i>
+		</div>
+		<div class="product-img">
+			<img src="~/assets/images/@product.Image" alt="" />
+		</div>
+		<div class="title">
+			<h4>ROSTED COFFEE</h4>
+			<h6>@product.Name</h6>
+			<span> PRICE - $@product.Price </span>
+			<span class="stars">
+				@for (var i = 0; i < product.Rating; i++)
+				{
+					<i class="fas fa-star gold"></i>
+				}
+
+			</span>
+		</div>
+	</div>
+}
