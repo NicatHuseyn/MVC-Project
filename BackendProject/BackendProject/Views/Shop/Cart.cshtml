@@ -1,0 +1,88 @@
+﻿@model BackendProject.ViewModels.BasketViewModels.BasketListVM
+
+@{
+	ViewData["Title"] = "Shop Cart Page";
+
+	double endTotal = 0;
+}
+links{
+<link rel="stylesheet" href="~/assets/css/shop-cart.css" />
+
+}
+
+
+<!-- about home start -->
+<section class="about-home">
+	<div class="about-header">
+		<h2>Cafena Cart</h2>
+		<div>
+			<ul>
+				<li class="breadcrumb-begin">
+					<a href="index.html">home</a>
+				</li>
+				<li></li>
+				<li class="breadcrumb-end">
+					<a href="about.html">faq</a>
+				</li>
+			</ul>
+		</div>
+	</div>
+</section>
+<!-- about  home end -->
+<!-- shop cart area start -->
+<section class="cart-section">
+	<div class="container-table">
+		<table>
+			<thead>
+				<tr>
+					<td>remove</td>
+					<td>image</td>
+					<td>product name</td>
+					<td>price</td>
+					<td>quantity</td>
+					<td>subtotal</td>
+				</tr>
+			</thead>
+			<tbody>
+				@foreach (var item in Model.BasketProducts)
+				{
+					<tr>
+						<td>
+							<i data-id="@item.Id" data-quantity="@item.Quantity" class="far fa-times-circle"></i>
+						</td>
+						<td>
+							<img src="~/assets/images/@item.Image" alt="" />
+						</td>
+						<td>@item.Name</td>
+						<td>$@item.Price</td>
+						<td>
+							<input disabled value="@item.Quantity" />
+						</td>
+						<td>$@item.Total</td>
+					</tr>
+
+					endTotal += item.Total;
+				}
+			</tbody>
+		</table>
+		<div class="total-price">
+			<h4>Cart Total</h4>
+			<div class="price">
+				<span>Total</span>
+				<span> $ @endTotal</span>
+			</div>
+			<button class="btn">
+				<a aria-current="page" asp-controller="Shop" asp-action="Checkout">
+					procced to checkout
+				</a>
+			</button>
+		</div>
+	</div>
+</section>
+<!-- shop cart area end -->
+script{
+<script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/11.4.30/sweetalert2.all.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="~/assets/js/shop-cart.js"></script>
+
+}

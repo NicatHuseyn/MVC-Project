@@ -1,0 +1,106 @@
+﻿@{
+	ViewData["Title"] = "Shop Checkout Page";
+}
+links{
+<link rel="stylesheet" href="~/assets/css/shop-checkout.css" />
+}
+<!-- about home start -->
+<section class="about-home">
+	<div class="about-header">
+		<h2>Cafena Checkout</h2>
+		<div>
+			<ul>
+				<li class="breadcrumb-begin">
+					<a href="index.html">home</a>
+				</li>
+				<li></li>
+				<li class="breadcrumb-end">
+					<a href="about.html">FAQ</a>
+				</li>
+			</ul>
+		</div>
+	</div>
+</section>
+<!-- about  home end -->
+<!-- shop checkout form start -->
+
+<section class="shop-checkout-form">
+	<div class="form-container">
+		<form>
+			<h2>Payment</h2>
+			<div class="form1">
+				<div>
+					<label for="fname">First Name*</label>
+					<input type="text" for="fname" placeholder="First Name" />
+				</div>
+				<div>
+					<label for="lname"> Last Name*</label>
+					<input type="text" for="lname" placeholder="Last Name" />
+				</div>
+			</div>
+			<div class="form2">
+				<label for="cname">Company name (optional)</label>
+				<input type="text"
+					   for="cname"
+					   id="cname"
+					   placeholder="Company Name" />
+			</div>
+			<div class="form2">
+				<label for="rname">Country / Region *</label>
+				<input type="text" for="rname" id="rname" placeholder="Country" />
+			</div>
+			<div class="form2">
+				<label for="hname">Street address</label>
+				<input type="text"
+					   for="hname"
+					   id="hname"
+					   placeholder="House number State" />
+			</div>
+			<div class="form2">
+				<label for="tname">Town / City *</label>
+				<input type="text" for="tname" name="tname" id="tname" />
+			</div>
+			<div class="form2">
+				<label for="zname">Postcode / ZIP (optional)*</label>
+				<input type="text" for="zname" name="zname" id="zname" />
+			</div>
+			<div class="form1">
+				<div>
+					<label for="tel">Phone</label>
+					<input type="tel"
+						   name="tel"
+						   id="tel"
+						   placeholder="Enter  your number..." />
+				</div>
+				<div>
+					<label for="email">Email</label>
+					<input type="email"
+						   name="email"
+						   id="email"
+						   placeholder="Enter  your mail..." />
+				</div>
+			</div>
+			<div class="form2">
+				<label for="ainfo">Additional Information*</label>
+				<textarea name="ainfo"
+						  id="ainfo"
+						  placeholder="Note about your order,Special note for delevery !"></textarea>
+			</div>
+
+			<div class="total-price">
+				<h4>Cart Total</h4>
+				<div class="price">
+					<span>Total</span>
+					<span>$@ViewBag.TotalPrice</span>
+				</div>
+				<button class="btn">procced to checkout</button>
+			</div>
+		</form>
+	</div>
+</section>
+
+<!-- shop checkout form end -->
+script{
+<script src="~/assets/js/shop-checkout.js"></script>
+
+}
