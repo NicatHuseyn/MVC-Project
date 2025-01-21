@@ -1,0 +1,33 @@
+﻿@using BackendProject.Areas.Admin.ViewModels;
+@model CategoryViewModel
+@{
+	ViewData["Title"] = "Create";
+}
+
+
+<div class="content-wrapper">
+	<div class="row">
+		<div class="col-md-12 grid-margin stretch-card">
+			<div class="card">
+				<div class="card-body">
+					<h4 class="card-title">Service</h4>
+					<p class="card-description">
+						Basic form layout
+					</p>
+					<form class="forms-sample" method="post" enctype="multipart/form-data">
+						<div>
+							<label for="Name">Category Name</label>
+							<input type="text" id="Name" name="Name" class="form-control" />
+						</div>
+						<div>
+							<label for="IsDeleted">Is Deleted</label>
+							<input type="checkbox" id="IsDeleted" name="IsDeleted" />
+						</div>
+						<button type="submit" class="btn btn-primary mr-2">Create</button>
+						<a class="btn btn-light" asp-action="Index">Cancel</a>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

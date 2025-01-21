@@ -95,6 +95,7 @@ namespace BackendProject.Areas.Admin.Controllers
             return RedirectToAction(nameof(Index));
 
         }
+
         public async Task<IActionResult> Update(int id)
         {
             Service? service = await _appDbContext.Services.FirstOrDefaultAsync(s => s.Id == id);

@@ -54,7 +54,7 @@ namespace BackendProject.Controllers
                 }
                 return View();
             }
-            await _userManager.AddToRoleAsync(newUser, RoleType.Admin.ToString());
+            await _userManager.AddToRoleAsync(newUser, RoleType.Member  .ToString());
 
             return RedirectToAction(nameof(Login));
 

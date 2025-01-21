@@ -9,7 +9,7 @@ public class MenuViewModel
     public string Name { get; set; }
     [Required]
     public decimal Price { get; set; }
-    [Required]
-    public string Image { get; set; }
+
+    public IFormFile Image { get; set; }
     public int MenuCategoryId { get; set; }
 }
