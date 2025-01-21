@@ -1,8 +1,6 @@
 ﻿using BackendProject.Utils;
 using BackendProject.Utils.Enums;
 using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.VisualStudio.Web.CodeGenerators.Mvc.Templates.BlazorIdentity.Pages;
 
 namespace BackendProject.Controllers
 {
@@ -56,7 +54,7 @@ namespace BackendProject.Controllers
                 }
                 return View();
             }
-            await _userManager.AddToRoleAsync(newUser, RoleType.Member.ToString());
+            await _userManager.AddToRoleAsync(newUser, RoleType.Admin.ToString());
 
             return RedirectToAction(nameof(Login));
 
