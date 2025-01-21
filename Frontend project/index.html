@@ -1,0 +1,773 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home Page</title>
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <!-- font awesome cdn link -->
+    <script
+      src="https://kit.fontawesome.com/88699d56f3.js"
+      crossorigin="anonymous"
+    ></script>
+    <!-- swipper cdn link -->
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.css" />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/swiper/swiper-bundle.min.css"
+    />
+  </head>
+  <body>
+    <!-- scroll top start -->
+    <div id="progress">
+      <span id="progress-value">&#x1F815;</span>
+    </div>
+    <!-- scroll top end -->
+    <!-- header section start -->
+    <header class="header">
+      <a href="#" class="logo">
+        <img src="/assets/images/logo.png" alt="" />
+      </a>
+      <!-- header navbar -->
+      <ul class="navbar">
+        <li class="menu-item">
+          <a href="index.html">home</a>
+        </li>
+        <li class="menu-item">
+          <a href="about.html">about</a>
+        </li>
+        <li class="menu-item">
+          <a href="menu.html">menu</a>
+        </li>
+        <li class="menu-item">
+          <a href="reservation.html">reservation</a>
+        </li>
+        <li class="menu-item">
+          <a href="#" class="sub-btn"
+            >pages <i class="fas fa-angle-down"></i
+          ></a>
+          <ul class="sub-menu">
+            <li class="sub-item"><a href="blog.html">blog</a></li>
+            <li class="sub-item"><a href="blog-detail.html">blog detail</a></li>
+            <li class="sub-item"><a href="chefs.html">chefs</a></li>
+            <li class="sub-item"><a href="faq.html">fag</a></li>
+          </ul>
+        </li>
+        <li class="menu-item">
+          <a href="#">shop <i class="fas fa-angle-down"></i></a>
+          <ul class="sub-menu">
+            <li class="sub-item"><a href="shop.html">shop</a></li>
+            <li class="sub-item">
+              <a href="shop-detail.html">shop details</a>
+            </li>
+            <li class="sub-item"><a href="shop-cart.html">shop cart</a></li>
+            <li class="sub-item">
+              <a href="shop-checkout.html">shop checkout</a>
+            </li>
+          </ul>
+        </li>
+        <li class="menu-item">
+          <a href="contact.html">contact</a>
+        </li>
+      </ul>
+
+      <!-- header icons -->
+      <div class="icons">
+        <div>
+          <i class="fas fa-search" id="search-btn"></i>
+        </div>
+        <div>
+          <i class="fa solid fa-basket-shopping" id="cart-btn"></i>
+          <span class="quantity">0</span>
+        </div>
+
+        <div>
+          <i class="fas fa-bars" id="menu-btn"></i>
+        </div>
+      </div>
+      <!-- header search -->
+      <div class="search-form">
+        <input type="text" id="search-box" placeholder="search here...." />
+        <label for="search-box" class="fas fa-search"></label>
+      </div>
+      <!-- header cart items -->
+      <div class="cart-items-container">
+        <div class="cart-item">
+          <span class="fas fa-times"> </span>
+          <img src="/assets/images/s-p-11.png" alt="" />
+          <div class="content">
+            <h3>cart item 01</h3>
+            <div class="price">$15.99/-</div>
+          </div>
+        </div>
+        <div class="cart-item">
+          <span class="fas fa-times"> </span>
+          <img src="/assets/images/s-p-4.png" alt="" />
+          <div class="content">
+            <h3>cart item 02</h3>
+            <div class="price">$15.99/-</div>
+          </div>
+        </div>
+        <div class="cart-item">
+          <span class="fas fa-times"> </span>
+          <img src="/assets/images/s-p-5.png" alt="" />
+          <div class="content">
+            <h3>cart item 03</h3>
+            <div class="price">$15.99/-</div>
+          </div>
+        </div>
+        <div class="cart-item">
+          <span class="fas fa-times"> </span>
+          <img src="/assets/images/s-p-7.png" alt="" />
+          <div class="content">
+            <h3>cart item 04</h3>
+            <div class="price">$15.99/-</div>
+          </div>
+        </div>
+        <div class="sub-total">
+          <span> SUB TOTAL:</span>
+          <span>$87.00</span>
+        </div>
+        <div class="sub-button">
+          <a href="#" class="sub-btn">cehckout now</a>
+          <a href="#" class="sub-btn">cehckout now</a>
+        </div>
+      </div>
+      <div class="responsive-header-container">
+        <div>
+          <img src="/assets/images/logo-black.png" alt="" />
+        </div>
+        <ul>
+          <ul class="responsive-navbar">
+            <li class="responsive-menu-item">
+              <a href="index.html">home</a>
+            </li>
+            <li class="responsive-menu-item">
+              <a href="about.html">about</a>
+            </li>
+            <li class="responsive-menu-item">
+              <a href="menu.html">menu</a>
+            </li>
+            <li class="responsive-menu-item">
+              <a href="reservation.html">reservation</a>
+            </li>
+            <li class="responsive-menu-item">
+              <a href="#" class="sub-btn"
+                >pages <i class="fas fa-angle-down"></i
+              ></a>
+              <ul class="responsive-sub-menu">
+                <li class="responsive-sub-item">
+                  <a href="blog.html">blog</a>
+                </li>
+                <li class="responsive-sub-item">
+                  <a href="blog-detail.html">blog detail</a>
+                </li>
+                <li class="responsive-sub-item">
+                  <a href="chef.html">chefs</a>
+                </li>
+                <li class="responsive-sub-item"><a href="faq.html">fag</a></li>
+              </ul>
+            </li>
+            <li class="responsive-menu-item">
+              <a href="shop.html">shop <i class="fas fa-angle-down"></i></a>
+              <ul class="responsive-sub-menu">
+                <li class="responsive-sub-item">
+                  <a href="shop.html">shop</a>
+                </li>
+                <li class="responsive-sub-item">
+                  <a href="shop-detail.html">shop details</a>
+                </li>
+                <li class="responsive-sub-item">
+                  <a href="shop-cart.html">shop cart</a>
+                </li>
+                <li class="responsive-sub-item">
+                  <a href="shop-checkout.html">checkout</a>
+                </li>
+              </ul>
+            </li>
+            <li class="responsive-menu-item">
+              <a href="contact.html">contact</a>
+            </li>
+          </ul>
+        </ul>
+      </div>
+    </header>
+
+    <!-- header section end -->
+    <!-- home section start -->
+    <section class="home" id="home">
+      <div class="content">
+        <h3>rosted coffee for you</h3>
+        <p>
+          The coffee is brewed by first roasting the green coffee beans over hot
+          <br />
+          coals in a brazier. given an opportunity to sample.
+        </p>
+        <a href="#" class="btn">read more</a>
+        <a href="#" class="btn">testy coffee</a>
+
+        <ul>
+          <li>
+            <i class="fa-brands fa-facebook"></i>
+            <span>facebook</span>
+          </li>
+          <li>
+            <i class="fa-brands fa-twitter"></i>
+            <span> twitter</span>
+          </li>
+          <li>
+            <i class="fa-brands fa-youtube"></i>
+            <span>youtube</span>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- home section end -->
+    <!-- cart section start -->
+
+    <div class="bg-service">
+      <div class="service-one">
+        <img src="/assets/images/f-1.jpeg" alt="" />
+        <div class="overlay">
+          <div class="over-txt">
+            <span>01</span>
+            <h4>Best Coffee flavour</h4>
+            <p>
+              Curabitur semper erat a lacusey sedn <br />
+              consequat, sit ametey.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="service-one">
+        <img src="/assets/images/f-2.jpeg" alt="" />
+        <div class="overlay">
+          <div class="over-txt">
+            <span>02</span>
+            <h4>Place to Get Lost</h4>
+            <p>
+              Curabitur semper erat a lacusey sedn <br />
+              consequat, sit ametey.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="service-one">
+        <img src="/assets/images/f-3.jpeg" alt="" />
+        <div class="overlay">
+          <div class="over-txt">
+            <span>03</span>
+            <h4>Proper Roesting</h4>
+            <p>
+              Curabitur semper erat a lacusey sedn <br />
+              consequat, sit ametey.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- cart section end -->
+    <!-- about section start -->
+    <section class="about" id="about">
+      <h1 class="heading">
+        <span> about </span>
+        us
+      </h1>
+      <div class="row">
+        <div class="image">
+          <img src="/assets/images/about-bg-3-1.jpeg" alt="" />
+        </div>
+        <div class="content">
+          <h3>CREATE A NEW STORY WITH US</h3>
+          <p>
+            Mauris rhoncus orci in imperdiet placerat. Vestibulum euismod nisl
+            suscipit ligula volutpat, a feugiat urna maximus. Cras massa
+            nibhtincidunt.
+          </p>
+          <p>
+            Donec et nibh maximus, congue est eu, mattis nunc. Praesent ut quam
+            quis quam venenatis fringilla. Morbi vestibulum id tellus mmodo
+            mattis. Aliquam erat volutpat.
+          </p>
+          <a href="about.html" class="btn">learn more</a>
+        </div>
+      </div>
+    </section>
+    <!-- about section end -->
+    <!-- menu section start -->
+
+    <div class="bg-menu">
+      <div class="menu-title">
+        <section>menu</section>
+        <h2>CAFENA POPULAR MENU</h2>
+        <hr />
+      </div>
+      <div class="menu-flex">
+        <div class="menu1">
+          <div class="small-image">
+            <img src="/assets/images/menu-2-1.png" alt="" />
+          </div>
+          <div>
+            <h4>caffee latter</h4>
+          </div>
+          <div class="line"></div>
+          <div>
+            <h4>$6.86</h4>
+          </div>
+        </div>
+        <div class="menu1">
+          <div class="small-image">
+            <img src="/assets/images/menu-2-2.png" alt="" />
+          </div>
+          <div>
+            <h4>caffee latter</h4>
+          </div>
+          <div class="line"></div>
+          <div>
+            <h4>$7.99</h4>
+          </div>
+        </div>
+        <div class="menu1">
+          <div class="small-image">
+            <img src="/assets/images/menu-2-3.png" alt="" />
+          </div>
+          <div>
+            <h4>caffee latter</h4>
+          </div>
+          <div class="line"></div>
+          <div>
+            <h4>$3.86</h4>
+          </div>
+        </div>
+        <div class="menu1">
+          <div class="small-image">
+            <img src="/assets/images/menu-2-4.png" alt="" />
+          </div>
+          <div>
+            <h4>caffee latter</h4>
+          </div>
+          <div class="line"></div>
+          <div>
+            <h4>$3.86</h4>
+          </div>
+        </div>
+        <div class="menu1">
+          <div class="small-image">
+            <img src="/assets/images/menu-2-5.png" alt="" />
+          </div>
+          <div>
+            <h4>caffee latter</h4>
+          </div>
+          <div class="line"></div>
+          <div>
+            <h4>$3.86</h4>
+          </div>
+        </div>
+        <div class="menu1">
+          <div class="small-image">
+            <img src="/assets/images/menu-2-6.png" alt="" />
+          </div>
+          <div>
+            <h4>caffee latter</h4>
+          </div>
+          <div class="line"></div>
+          <div>
+            <h4>$3.86</h4>
+          </div>
+        </div>
+        <div class="menu1">
+          <div class="small-image">
+            <img src="/assets/images/menu-2-2.png" alt="" />
+          </div>
+          <div>
+            <h4>caffee latter</h4>
+          </div>
+          <div class="line"></div>
+          <div>
+            <h4>$3.86</h4>
+          </div>
+        </div>
+        <div class="menu1">
+          <div class="small-image">
+            <img src="/assets/images/menu-2-1.png" alt="" />
+          </div>
+          <div>
+            <h4>caffee latter</h4>
+          </div>
+          <div class="line"></div>
+          <div>
+            <h4>$3.86</h4>
+          </div>
+        </div>
+      </div>
+      <div class="menu-link">
+        <a href="menu.html">view menu</a>
+      </div>
+    </div>
+
+    <!-- menu section end -->
+    <!-- product section start -->
+    <section class="bg-shop">
+      <div class="shop-links">
+        <div>
+          <h2>CAFENA POPULAR PRODUCT</h2>
+        </div>
+        <div class="links">
+          <button class="btn">view all products</button>
+        </div>
+      </div>
+      <div class="shop-flex consts">
+        <div class="shop1">
+          <div class="shop-image">
+            <img src="/assets/images/pp-2.png" alt="" />
+            <div class="price">-7%</div>
+            <div class="social">
+              <a href="#"> <i class="fas fa-shopping-basket"></i> </a>
+              <a href="#">
+                <i class="fas fa-heart"></i>
+              </a>
+              <a>
+                <i class="fas fa-eye"></i>
+              </a>
+            </div>
+          </div>
+          <h2>hot coffee</h2>
+          <div class="stars">
+            <i class="fas fa-star gold"></i>
+            <i class="fas fa-star gold"></i>
+            <i class="fas fa-star gold"></i>
+            <i class="fas fa-star gold"></i>
+            <i class="fas fa-star"></i>
+          </div>
+          <article>$32.00</article>
+          <span> $45.00 </span>
+        </div>
+        <div class="shop1">
+          <div class="shop-image">
+            <img src="/assets/images/pp-1.png" alt="" />
+            <div class="price">-7%</div>
+            <div class="social">
+              <a href="#"> <i class="fas fa-shopping-basket"></i> </a>
+              <a href="#">
+                <i class="fas fa-heart"></i>
+              </a>
+              <a>
+                <i class="fas fa-eye"></i>
+              </a>
+            </div>
+          </div>
+          <h2>hot coffee</h2>
+          <div class="stars">
+            <i class="fas fa-star gold"></i>
+            <i class="fas fa-star gold"></i>
+            <i class="fas fa-star gold"></i>
+            <i class="fas fa-star gold"></i>
+            <i class="fas fa-star"></i>
+          </div>
+          <article>$32.00</article>
+          <span> $45.00 </span>
+        </div>
+        <div class="shop1">
+          <div class="shop-image">
+            <img src="/assets/images/pp-2.png" alt="" />
+            <div class="price">-7%</div>
+            <div class="social">
+              <a href="#"> <i class="fas fa-shopping-basket"></i> </a>
+              <a href="#">
+                <i class="fas fa-heart"></i>
+              </a>
+              <a>
+                <i class="fas fa-eye"></i>
+              </a>
+            </div>
+          </div>
+          <h2>hot coffee</h2>
+          <div class="stars">
+            <i class="fas fa-star gold"></i>
+            <i class="fas fa-star gold"></i>
+            <i class="fas fa-star gold"></i>
+            <i class="fas fa-star gold"></i>
+            <i class="fas fa-star"></i>
+          </div>
+          <article>$32.00</article>
+          <span> $45.00 </span>
+        </div>
+        <div class="shop1">
+          <div class="shop-image">
+            <img src="/assets/images/pp-1.png" alt="" />
+            <div class="price">-7%</div>
+            <div class="social">
+              <a href="#"> <i class="fas fa-shopping-basket"></i> </a>
+              <a href="#">
+                <i class="fas fa-heart"></i>
+              </a>
+              <a>
+                <i class="fas fa-eye"></i>
+              </a>
+            </div>
+          </div>
+          <h2>hot coffee</h2>
+          <div class="stars">
+            <i class="fas fa-star gold"></i>
+            <i class="fas fa-star gold"></i>
+            <i class="fas fa-star gold"></i>
+            <i class="fas fa-star gold"></i>
+            <i class="fas fa-star"></i>
+          </div>
+          <article>$32.00</article>
+          <span> $45.00 </span>
+        </div>
+      </div>
+    </section>
+    <!-- product section end -->
+    <!-- modal section start -->
+    <div id="myModal" class="modal">
+      <div class="modal-content">
+        <div class="modal-img">
+          <img src="/assets/images/pp-1.png" alt="" />
+        </div>
+        <div class="modal-text">
+          <h2>VICARAGUA COFFEE BEANS</h2>
+          <div class="modal-stars">
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-regular fa-star"></i>
+          </div>
+          <h3><span>$</span>99.00</h3>
+          <h4>Available :<span> In stock</span></h4>
+          <p>
+            Anlor sit amet, consectetur adipiscing elit. Fusce condimentum est
+            lacus, non pretium risus lacinia vel. Fusce eget turpis orci.
+          </p>
+          <div class="modal-quantity">
+            <span>Quantity</span>
+            <input type="number" placeholder="1" />
+          </div>
+          <button class="btn-modal">ADD TO CART</button>
+        </div>
+        <a class="close"> <i class="fa-solid fa-xmark"></i> </a>
+      </div>
+    </div>
+    <!-- modal section end -->
+    <!-- slider section start -->
+    <section class="slider">
+      <div class="menu-title">
+        <section>customer feedback</section>
+        <h2>OUR CUSTOMER REVIEW</h2>
+      </div>
+      <div class="swiper-container">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide">
+            <div class="box">
+              <img src="/assets/images/t-quote.png" alt="" class="quote" />
+              <p>
+                Very good quality of food and service. Vast menu with child
+                friendly items as well as local <br />
+                seafood and even entrees for those who dont like seafood. Great
+                place! Thanks. We <br />
+                absolutely love everything there!
+              </p>
+              <img src="/assets/images/tm-author.png" alt="" class="user" />
+              <h4>Rasalina De Willamson</h4>
+              <span class="designation">Founder &amp; co</span>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="box">
+              <img src="/assets/images/t-quote.png" alt="" class="quote" />
+              <p>
+                Very good quality of food and service. Vast menu with child
+                friendly items as well as local <br />
+                seafood and even entrees for those who dont like seafood. Great
+                place! Thanks. We <br />
+                absolutely love everything there!
+              </p>
+              <img src="/assets/images/tm-author.png" alt="" class="user" />
+              <h4>Rasalina De Willamson</h4>
+              <span class="designation">Founder &amp; co</span>
+            </div>
+          </div>
+        </div>
+        <div class="swiper-pagination"></div>
+
+        <div class="swiper-button-prev"></div>
+
+        <div class="swiper-button-next"></div>
+      </div>
+    </section>
+    <!-- slider section end -->
+    <!-- reservation section start -->
+    <section class="contact" id="contact">
+      <div class="row">
+        <iframe
+          class="map"
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12157.96580566317!2d49.844708549999986!3d40.37579924999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40307d079efb5163%3A0xc20aa51a5f0b5e01!2sCode%20Academy!5e0!3m2!1str!2saz!4v1691186741447!5m2!1str!2saz"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+        ></iframe>
+        <form action="">
+          <h3>get in touch</h3>
+          <div class="inputBox">
+            <input type="text" placeholder="4 person" />
+            <span class="fas fa-user"></span>
+          </div>
+          <div class="inputBox">
+            <input type="time" placeholder="12.2.2021" />
+            <span class="fa-solid fa-calendar-days"></span>
+          </div>
+          <div class="inputBox">
+            <input type="datetime" placeholder="11:00 PM" />
+            <span class="fa-solid fa-clock"></span>
+          </div>
+          <input type="submit" value="contact now" class="btn" />
+        </form>
+      </div>
+    </section>
+    <!-- reservation section end -->
+    <!-- cart blog section start -->
+    <section class="blogs" id="blogs">
+      <h1 class="heading">
+        OUR
+        <span>NEWS & ARTICLES</span>
+      </h1>
+      <div class="box-container">
+        <div class="box">
+          <div class="image">
+            <img src="/assets/images/blog-1.jpeg" alt="" />
+          </div>
+          <div class="content">
+            <a href="#" class="title">
+              Ideal Cocktails From Our Barmen For Pefect Mood</a
+            >
+            <span>BY: RASALINA \ LIFE \ 23.01.2017</span>
+
+            <a href="about.html" class="btn">read more</a>
+          </div>
+        </div>
+        <div class="box">
+          <div class="image">
+            <img src="/assets/images/blog-3.jpeg" alt="" />
+          </div>
+          <div class="content">
+            <a href="#" class="title"
+              >Build A Cool Mornig With Cafena Coffee Coffee</a
+            >
+            <span>BY: RASALINA \ LIFE \ 23.01.2017</span>
+            <a href="about.html" class="btn">read more</a>
+          </div>
+        </div>
+        <div class="box">
+          <div class="image">
+            <img src="/assets/images/blog-2.jpeg" alt="" />
+          </div>
+          <div class="content">
+            <a href="#" class="title">
+              Questions Business Must Be Able To Answers</a
+            >
+            <span>BY: RASALINA \ LIFE \ 23.01.2017</span>
+            <a href="about.html" class="btn">read more</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- cart blog section end -->
+    <!-- footer section start -->
+
+    <section class="footer">
+      <div class="footer1">
+        <divc class="location-address">
+          <img src="/assets/images/ft-phone.png" alt="" />
+          <span>PHONE :</span>
+          <a href=""> +88019 339 702 520</a>
+        </divc>
+        <div class="location-address">
+          <img src="/assets/images/ft-map-marker.png" alt="" />
+          <span>ADDRESS :</span>
+          <a href=""> 30 North West New</a>
+        </div>
+        <form>
+          <input type="text" placeholder="Enter your email" />
+          <button class="footer-btn">
+            Subscribe
+            <i class="fas fa-paper-plane"></i>
+          </button>
+        </form>
+      </div>
+      <div class="footer2">
+        <div class="footer2-logo">
+          <img src="/assets/images/logo.png" alt="" />
+          <p>
+            Donec et nibh maximus, congue est eu, mattis nunc. Praesent ut quam
+            quis quam <br />
+            venenatis fringilla. Morbi vestibulum
+          </p>
+        </div>
+        <div class="footer2-social">
+          <ul>
+            <li>
+              <a href="">
+                <i class="fa-brands fa-facebook"></i>
+              </a>
+            </li>
+            <li>
+              <a href="">
+                <i class="fa-brands fa-instagram"></i>
+              </a>
+            </li>
+            <li>
+              <a href="">
+                <i class="fa-brands fa-youtube"></i>
+              </a>
+            </li>
+            <li>
+              <a href="">
+                <i class="fab fa-google"></i>
+              </a>
+            </li>
+            <li>
+              <a href="">
+                <i class="fab fa-twitter"></i>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer3">
+        <ul>
+          <li>
+            <a href="index.html">home</a>
+          </li>
+          <li>
+            <a href="about.html">about</a>
+          </li>
+          <li>
+            <a href="">menu</a>
+          </li>
+          <li>
+            <a href="">reservation</a>
+          </li>
+          <li>
+            <a href="">pages</a>
+          </li>
+          <li>
+            <a href="">shop</a>
+          </li>
+          <li>
+            <a href="contact.html">contact</a>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- footer  section end -->
+    <script src="https://unpkg.com/swiper/swiper-bundle.js"></script>
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script src="/assets/js/main.js"></script>
+  </body>
+</html>
