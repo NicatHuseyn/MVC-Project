@@ -1,3 +1,4 @@
+using BackendProject.Utils;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
@@ -41,6 +42,13 @@ builder.Services.AddSession(options =>
     options.Cookie.HttpOnly = true;
     options.Cookie.IsEssential = true;
 });
+#endregion
+
+#region Email 
+Constants.mail = builder.Configuration["MailSettings:Mail"];
+Constants.password = builder.Configuration["MailSettings:Password"];
+Constants.host = builder.Configuration["MailSettings:Host"];
+Constants.port = int.Parse(builder.Configuration["MailSettings:Port"]);
 #endregion
 
 

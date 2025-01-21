@@ -1,0 +1,23 @@
+﻿@model Contact
+@{
+    ViewData["Title"] = "Delete";
+
+}
+<div class="content-wrapper">
+    <div class="row">
+        <div class="col-lg-6">
+            <h4>FullName: @Model.FullName</h4>
+            <h4>Email: @Model.Email</h4>
+            <h4>Subject: @Model.Subject</h4>
+            <h4>Message: @Model.Message</h4>
+
+            <div style="display: flex; gap: 15px">
+                <a class="btn btn-info" asp-action="Index">Go Back</a>
+                <form method="post">
+                    <button type="submit" class="btn btn-danger">Delete</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+

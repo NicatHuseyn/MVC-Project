@@ -1,0 +1,46 @@
+﻿@model Chef
+
+@{
+	ViewData["Title"] = "Create";
+}
+
+<div class="content-wrapper">
+	<div class="row">
+		<div class="col-md-12 grid-margin stretch-card">
+			<div class="card">
+				<div class="card-body">
+					<h4 class="card-title">Service</h4>
+					<p class="card-description">
+						Basic form layout
+					</p>
+					<form class="forms-sample" asp-action="Create" method="post" enctype="multipart/form-data">
+						<div class="form-group">
+							<label for="exampleInputEmail1">Name</label>
+							<input class="form-control" asp-for="Name" placeholder="Name" accept="image/*">
+							<span asp-validation-for="Name" class="text-danger"></span>
+						</div>
+
+						<div class="form-group">
+							<label for="exampleInputUsername1">Image</label>
+							<input class="form-control" asp-for="Photo" placeholder="Image" accept="image/*">
+							<span asp-validation-for="Photo" class="text-danger"></span>
+						</div>
+						<div class="form-group">
+							<label for="exampleInputEmail1">Experience</label>
+							<input class="form-control" asp-for="ExperienceInYears" placeholder="Experience">
+							<span asp-validation-for="ExperienceInYears" class="text-danger"></span>
+						</div>
+						<div class="form-group">
+							<label class="my-3" asp-for="SocialIds">Social</label>
+							<select class="form-control" asp-for="SocialIds" asp-items="@ViewBag.Socials"></select>
+						</div>
+						<button type="submit" class="btn btn-primary mr-2">Create</button>
+						<a class="btn btn-light" asp-action="Index">Cancel</a>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+

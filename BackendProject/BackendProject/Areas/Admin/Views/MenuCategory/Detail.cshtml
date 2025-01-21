@@ -1,0 +1,45 @@
+﻿@model MenuCategory
+@{
+    ViewData["Title"] = " Menu Category Detail";
+}
+
+<div class="content-wrapper">
+    <div class="row">
+        <div class="col-lg-6">
+            <h4>Name: @Model.Name</h4>
+            <h4>Products</h4>
+            <div class="content-wrapper">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>Image</th>
+                                        <th>Name</th>
+                                        <th>Price</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var menu in Model.Menus)
+                                    {
+                                        <tr>
+                                            <td>
+                                                <img src="~/assets/images/@menu.Image" />
+                                            </td>
+                                            <td>@menu.Name</td>
+                                            <td>@menu.Price</td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <a class="btn btn-info" asp-action="Index">Go Back</a>
+        </div>
+    </div>
+</div>
+
