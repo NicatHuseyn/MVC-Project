@@ -1,0 +1,45 @@
+﻿@model Slider
+@{
+	ViewData["Title"] = "Update";
+}
+
+<div class="content-wrapper">
+	<div class="row">
+		<div class="col-md-12 grid-margin stretch-card">
+			<div class="card">
+				<div class="card-body">
+					<h4 class="card-title">Update form</h4>
+
+					<form class="forms-sample" method="post">
+						<div class="form-group">
+							<label for="exampleInputUsername1">Image</label>
+							<input class="form-control" asp-for="UserImage" placeholder="Image">
+							<span asp-validation-for="UserImage" class="text-danger"></span>
+
+						</div>
+						<div class="form-group">
+							<label for="exampleInputEmail1">Name</label>
+							<input class="form-control" asp-for="UserName" placeholder="Name">
+							<span asp-validation-for="UserName" class="text-danger"></span>
+						</div>
+						<div class="form-group">
+							<label for="exampleInputPassword1">Description</label>
+							<input class="form-control" asp-for="Description" placeholder="description">
+							<span asp-validation-for="Description" class="text-danger"></span>
+
+						</div>
+						<div class="form-group">
+							<label for="exampleInputConfirmPassword1">Designation</label>
+							<input class="form-control" asp-for="Designation" placeholder="designation">
+							<span asp-validation-for="Designation" class="text-danger"></span>
+
+						</div>
+						<button type="submit" class="btn btn-warning mr-2">Update</button>
+						<button class="btn btn-light" asp-action="Index">Cancel</button>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+

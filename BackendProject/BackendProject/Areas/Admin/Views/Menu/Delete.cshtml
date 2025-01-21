@@ -1,0 +1,26 @@
+﻿@model Menu
+@{
+    ViewData["Title"] = "Menu Delete";
+}
+<div class="content-wrapper">
+    <div class="row">
+        <div class="col-lg-6">
+            <div style="width:200px; height:auto; margin-bottom:10px">
+                <img src="~/assets/images/@Model.Image" style="max-width:100%; max-height: auto" />
+            </div>
+            <h4>Title: @Model.Name</h4>
+            <h4>Category: @Model.MenuCategory.Name</h4>
+            <h4>Description: @Model.Price </h4>
+
+
+            <div style="display: flex; gap: 15px">
+                <a class="btn btn-info" asp-action="Index">Go Back</a>
+                <form method="post">
+                    <button type="submit" class="btn btn-danger">Delete</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+

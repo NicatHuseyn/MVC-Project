@@ -4,6 +4,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace BackendProject.Areas.Admin.Controllers
 {
+    [Area("Admin")]
     public class ContactController : Controller
     {
         private readonly AppDbContext _context;

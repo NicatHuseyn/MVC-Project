@@ -7,6 +7,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace BackendProject.Areas.Admin.Controllers
 {
+    [Area("Admin")]
     public class ChefController : Controller
     {
         private readonly AppDbContext _appDbContext;

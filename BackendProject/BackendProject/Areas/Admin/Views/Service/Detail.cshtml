@@ -1,0 +1,19 @@
+﻿@model Service
+@{
+    ViewData["Title"] = "Detail";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="content-wrapper">
+    <div class="row">
+        <div class="col-lg-6">
+            <div style="width:200px; height:auto">
+                <img src="~/assets/images/@Model.Image" style="max-width:100%; max-height: auto" />
+            </div>
+            <h4>Number: @Model.Number</h4>
+            <h4>Title: @Model.Title</h4>
+            <a class="btn btn-info" asp-action="Index">Go Back</a>
+        </div>
+    </div>
+</div>
+

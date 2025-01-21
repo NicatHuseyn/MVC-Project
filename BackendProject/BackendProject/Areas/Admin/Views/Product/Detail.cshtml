@@ -1,0 +1,21 @@
+﻿@model Product
+@{
+    ViewData["Title"] = "Detail";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="content-wrapper">
+    <div class="row">
+        <div class="col-lg-6">
+            <div style="width:200px; height:auto">
+                <img src="~/assets/images/@Model.Image" style="max-width:100%; max-height: auto" />
+            </div>
+            <h4>Name: @Model.Name</h4>
+            <h4>Price: @Model.Price</h4>
+            <h4>Rating: @Model.Rating</h4>
+            <h4>Category: @Model.CategoryId</h4>
+
+            <a class="btn btn-info" asp-action="Index">Go Back</a>
+        </div>
+    </div>
+</div>
