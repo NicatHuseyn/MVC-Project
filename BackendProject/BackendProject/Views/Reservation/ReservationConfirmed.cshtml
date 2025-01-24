@@ -1,0 +1,32 @@
+﻿@model BackendProject.Models.Reservation
+
+@{
+    ViewData["Title"] = "ReservationConfirmed";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section class="reservation__container">
+    <div class="form_item">
+        <h2>RESERVATION FORM</h2>
+
+        <div class="confirmation-message">
+            <h2>Your Reservation is Confirmed!</h2>
+            <p>Thank you for choosing our coffee shop. We are excited to host you!</p>
+            <p><strong>Reservation Details:</strong></p>
+            <ul>
+                <li><strong>Name:</strong> @Model.Name</li>
+                <li><strong>Phone:</strong> @Model.Phone</li>
+                <li><strong>Seats:</strong> @Model.PersonCount</li>
+                <li><strong>Date:</strong> @Model.ReservationDate.ToString("MM/dd/yyyy")</li>
+                <li><strong>Time:</strong> @Model.ReservationTime.ToString(@"hh\:mm")</li>
+                <li><strong>Email:</strong> @Model.Email</li>
+            </ul>
+            <p>We look forward to welcoming you!</p>
+            <div class="confirmation-btn">
+                <a href="/" class="btn btn-primary">Return to Home Page</a>
+            </div>
+        </div>
+
+    </div>
+</section>
+

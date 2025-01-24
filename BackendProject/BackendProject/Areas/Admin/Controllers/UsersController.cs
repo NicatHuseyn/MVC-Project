@@ -26,7 +26,9 @@ namespace BackendProject.Areas.Admin.Controllers
         {
             var userName = HttpContext?.User?.Identity?.Name;
 
-            var users = await _userManager.Users.Where(u => u.UserName != userName).ToListAsync();
+            //var users = await _userManager.Users.Where(u => u.UserName != userName).ToListAsync();
+
+            var users = await _userManager.Users.ToListAsync();
 
             List<AlluserViewModel> allusers = new List<AlluserViewModel>();
             foreach (var user in users)

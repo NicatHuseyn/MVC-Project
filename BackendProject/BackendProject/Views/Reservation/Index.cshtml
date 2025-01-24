@@ -1,4 +1,6 @@
-﻿@{
+﻿@model Reservation
+
+@{
     ViewData["Title"] = "Reservation Page";
 }
 Links{
@@ -33,32 +35,31 @@ Links{
     </span>
     <div class="form_item">
         <h2>RESERVATION FORM</h2>
-        <form class="form">
+
+        <form method="post" asp-action="CreateReservation" class="form">
             <div>
-                <input type="text" name="subject" placeholder="enter your name" />
-                <input type="number"
-                       name="personCount"
-                       min="1"
-                       max="6"
-                       placeholder="seates*"
-                       required />
-                <input type="time" id="time" name="appointment_time" />
+                <input asp-for="Name" placeholder="Enter your name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span> <!-- Validation for Name -->
+
+                <input asp-for="PersonCount" type="number" min="1" max="6" placeholder="Seats*" class="form-control" required />
+                <span asp-validation-for="PersonCount" class="text-danger"></span> <!-- Validation for PersonCount -->
+
+                <input asp-for="ReservationTime" type="time" class="form-control" required />
+                <span asp-validation-for="ReservationTime" class="text-danger"></span> <!-- Validation for ReservationTime -->
             </div>
             <div>
-                <input type="tel"
-                       id="phone"
-                       name="enter your number"
-                       placeholder="Enter Your Number"
-                       required />
-                <input type="date" name="birthdate" placeholder="gg.aa.yyyy" />
-                <input type="email"
-                       id="email"
-                       name="user_email"
-                       placeholder="Enter your mail"
-                       required />
+                <input asp-for="Phone" type="tel" placeholder="Enter Your Phone Number" class="form-control" required />
+                <span asp-validation-for="Phone" class="text-danger"></span> <!-- Validation for Phone -->
+
+                <input asp-for="ReservationDate" type="date" placeholder="Date" class="form-control" required />
+                <span asp-validation-for="ReservationDate" class="text-danger"></span> <!-- Validation for ReservationDate -->
+
+                <input asp-for="Email" type="email" placeholder="Enter your email" class="form-control" required />
+                <span asp-validation-for="Email" class="text-danger"></span> <!-- Validation for Email -->
             </div>
+            <button type="submit" class="btn btn-primary">Submit Your Request</button>
         </form>
-        <button>submit you request</button>
+
     </div>
 </section>
 
