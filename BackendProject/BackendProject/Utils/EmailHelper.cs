@@ -17,7 +17,7 @@ public class EmailHelper
         builder.HtmlBody = mailRequestViewModel.Body;
         email.Body = builder.ToMessageBody();
         using var smtp = new SmtpClient();
-        smtp.Connect(Constants.host, Constants.port, SecureSocketOptions.StartTls);
+        smtp.Connect(Constants.host, Constants.port, SecureSocketOptions.None);
         smtp.Authenticate(Constants.mail, Constants.password);
         await smtp.SendAsync(email);
         smtp.Disconnect(true);
