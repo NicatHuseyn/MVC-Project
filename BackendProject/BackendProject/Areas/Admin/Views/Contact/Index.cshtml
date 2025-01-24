@@ -1,4 +1,4 @@
-﻿@model List<Contact>
+﻿@model List<BackendProject.Areas.Admin.ViewModels.ContactViewModel>
 @{
 	ViewData["Title"] = "Index";
 }
@@ -10,6 +10,8 @@
 				<div class="card-body">
 					<h4 class="card-title">Contact</h4>
 					<div class="table-responsive">
+						<a class="btn btn-primary" asp-action="Create">Create</a>
+
 						<table class="table">
 							<thead>
 								<tr>
@@ -28,7 +30,8 @@
 										<td>@contact.Subject</td>
 										<td>
 											<a class="btn btn-success" asp-action="Detail" asp-route-id="@contact.Id">Detail</a>
-											<a class="btn btn-danger @(ViewBag.Count == 1 ? "disabled" : "")" asp-action="Delete" asp-route-id=@contact.Id>Delete</a>
+											<a class="btn btn-warning" asp-action="Update" asp-route-id=@contact.Id>Update</a>
+											<a class="btn btn-danger" asp-action="Delete" asp-route-id=@contact.Id>Delete</a>
 										</td>
 									</tr>
 								}

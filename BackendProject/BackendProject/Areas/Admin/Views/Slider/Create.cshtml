@@ -1,7 +1,9 @@
-﻿@model Slider
+﻿@using BackendProject.Areas.Admin.ViewModels;
+@model SliderViewModel
 @{
 	ViewData["Title"] = "Create";
 }
+
 <div class="content-wrapper">
 	<div class="row">
 		<div class="col-md-12 grid-margin stretch-card">
@@ -11,10 +13,10 @@
 					<p class="card-description">
 						Basic form layout
 					</p>
-					<form class="forms-sample" method="post">
+					<form class="forms-sample" method="post" enctype="multipart/form-data">
 						<div class="form-group">
 							<label for="exampleInputUsername1">Image</label>
-							<input class="form-control" asp-for="UserImage" placeholder="Image" accept="image/*">
+							<input accept=".jpg, .png, .jpeg" class="form-control" asp-for="UserImage" placeholder="Image" accept="image/*">
 							<span asp-validation-for="UserImage" class="text-danger"></span>
 
 						</div>

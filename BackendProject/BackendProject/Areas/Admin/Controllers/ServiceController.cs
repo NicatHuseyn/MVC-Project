@@ -1,4 +1,5 @@
 ﻿using BackendProject.Areas.Admin.ViewModels;
+using BackendProject.Models;
 using BackendProject.Utils;
 using BackendProject.Utils.Enums;
 using Microsoft.AspNetCore.Authorization;
@@ -124,21 +125,29 @@ namespace BackendProject.Areas.Admin.Controllers
             Service? service = await _appDbContext.Services.FirstOrDefaultAsync(s => s.Id == id);
             if (service is null)
                 return NotFound();
+
             if (serviceViewModel.Image != null)
             {
-                if (!serviceViewModel.Image.CheckFileSize(100))
+                if (!serviceViewModel.Image.CheckFileSize(500))
                 {
-                    ModelState.AddModelError("Image", "Faylin hecmi 100 kb-dan kicik olmalidir.");
-                    return View();
+                    ModelState.AddModelError("Image", "Faylin hecmi 500 kb-dan kicik olmalidir.");
+                    return View(serviceViewModel);
                 }
                 if (!serviceViewModel.Image.CheckFileType(ContentType.image.ToString()))
                 {
                     ModelState.AddModelError("Image", "Faylin tipi shekil olmalidir.");
-                    return View();
+                    return View(serviceViewModel);
                 }
 
-                var path = Path.Combine(_webHostEnvironment.WebRootPath, "assets", "images", service.Image);
-                FileService.DeleteFile(path);
+                // Delete old image
+                if (!string.IsNullOrEmpty(service.Image))
+                {
+                    var oldPath = Path.Combine(_webHostEnvironment.WebRootPath, "assets", "Admin", "images", service.Image);
+                    if (System.IO.File.Exists(oldPath))
+                    {
+                        FileService.DeleteFile(oldPath);
+                    }
+                }
 
                 string fileName = $"{Guid.NewGuid()}-{serviceViewModel.Image.FileName}";
                 var newPath = Path.Combine(_webHostEnvironment.WebRootPath, "assets", "images", fileName);
@@ -146,6 +155,7 @@ namespace BackendProject.Areas.Admin.Controllers
                 {
                     await serviceViewModel.Image.CopyToAsync(stream);
                 }
+
                 service.Image = fileName;
             }
 

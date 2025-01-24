@@ -20,9 +20,8 @@ public class AppDbContext:IdentityDbContext<AppUser>
     public DbSet<Setting> Settings { get; set; } = null!;
     public DbSet<Basket> Baskets { get; set; }
     public DbSet<BasketProduct> BasketProducts { get; set; }
-
+    public DbSet<Reservation> Reservations { get; set; }
     public DbSet<Contact> Contacts { get; set; }
-    public DbSet<Chef> Chefs { get; set; }
     public DbSet<SocialMedia> SocialMedias { get; set; }
 
     public override Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)

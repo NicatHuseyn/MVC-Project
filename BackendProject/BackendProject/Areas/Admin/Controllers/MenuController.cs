@@ -1,4 +1,5 @@
 ﻿using BackendProject.Areas.Admin.ViewModels;
+using BackendProject.Models;
 using BackendProject.Utils;
 using BackendProject.Utils.Enums;
 using Microsoft.AspNetCore.Authorization;
@@ -43,16 +44,36 @@ public class MenuController : Controller
             return View();
 
         if (!_context.MenuCategories.Any(mc => mc.Id == menuViewModel.MenuCategoryId))
-            return BadRequest("Invalid MenuCategoryId");
+            return BadRequest("MenuCategory tapılmadı");
 
         if (!menuViewModel.Image.CheckFileType(ContentType.image.ToString()))
         {
-            ModelState.AddModelError("Image", "File must be an image.");
+            ModelState.AddModelError("Image", "Yüklənən bir fayl olmalıdır.");
             return View();
+        }
+
+        if (menuViewModel.Image == null || menuViewModel.Image.Length == 0)
+        {
+            ModelState.AddModelError("Image", "Zəhmət olmasa bir şəkil yükləyin");
+            return View(menuViewModel);
         }
 
         string fileName = $"{Guid.NewGuid()}-{menuViewModel.Image.FileName}";
         string path = Path.Combine(_webHostEnvironment.WebRootPath, "assets", "images", fileName);
+
+        try
+        {
+            using (var stream = new FileStream(path, FileMode.Create))
+            {
+                await menuViewModel.Image.CopyToAsync(stream);
+            }
+        }
+        catch (Exception ex)
+        {
+            ModelState.AddModelError("Image", $"Fayl yüklənmədi: {ex.Message}");
+            return View(menuViewModel);
+        }
+
         using (FileStream stream = new FileStream(path, FileMode.Create))
         {
             await menuViewModel.Image.CopyToAsync(stream);
@@ -106,57 +127,70 @@ public class MenuController : Controller
         return RedirectToAction(nameof(Index));
     }
 
-    public IActionResult Update(int id)
+    public async Task<IActionResult> Update(int id)
     {
-        Menu menu = _context.Menus.FirstOrDefault(m => m.Id == id && !m.IsDeleted);
-        if (menu == null) return NotFound();
+        Menu? menu = await _context.Menus.FirstOrDefaultAsync(p => p.Id == id);
+        if (menu is null)
+            return NotFound();
+
+        ViewBag.MenuCategories = _context.MenuCategories.Where(c => !c.IsDeleted);
 
         MenuViewModel menuViewModel = new()
         {
+            Id = menu.Id,
             Name = menu.Name,
             Price = menu.Price,
-            MenuCategoryId = menu.MenuCategoryId,
+            MenuCategoryId = menu.MenuCategoryId
         };
 
-        ViewBag.MenuCategories = _context.MenuCategories.AsEnumerable();
         return View(menuViewModel);
     }
+
 
     [HttpPost]
     [ValidateAntiForgeryToken]
     public async Task<IActionResult> Update(int id, MenuViewModel menuViewModel)
     {
-        ViewBag.MenuCategories = _context.MenuCategories.AsEnumerable();
+        ViewBag.MenuCategories = _context.MenuCategories.Where(c => !c.IsDeleted);
 
         if (!ModelState.IsValid)
-            return View(menuViewModel);
+            return View();
 
-        Menu menu = _context.Menus.FirstOrDefault(m => m.Id == id && !m.IsDeleted);
-        if (menu == null) return NotFound();
+        if (!_context.MenuCategories.Any(c => c.Id == menuViewModel.MenuCategoryId))
+            return BadRequest();
 
-        if (!_context.MenuCategories.Any(mc => mc.Id == menuViewModel.MenuCategoryId))
-            return BadRequest("Invalid MenuCategoryId");
+        Menu? menu = await _context.Menus.FirstOrDefaultAsync(p => p.Id == id);
+        if (menu is null)
+            return NotFound();
 
         if (menuViewModel.Image != null)
         {
+            if (!menuViewModel.Image.CheckFileSize(500))
+            {
+                ModelState.AddModelError("Image", "Faylin hecmi 500 kb-dan kicik olmalidir.");
+                return View(menuViewModel);
+            }
             if (!menuViewModel.Image.CheckFileType(ContentType.image.ToString()))
             {
-                ModelState.AddModelError("Image", "File must be an image.");
+                ModelState.AddModelError("Image", "Faylin tipi shekil olmalidir.");
                 return View(menuViewModel);
             }
 
-            string fileName = $"{Guid.NewGuid()}-{menuViewModel.Image.FileName}";
-            string path = Path.Combine(_webHostEnvironment.WebRootPath, "assets", "images", fileName);
-            using (FileStream stream = new FileStream(path, FileMode.Create))
+            // Delete old image
+            if (!string.IsNullOrEmpty(menu.Image))
             {
-                await menuViewModel.Image.CopyToAsync(stream);
+                var oldPath = Path.Combine(_webHostEnvironment.WebRootPath, "assets", "Admin", "images", menu.Image);
+                if (System.IO.File.Exists(oldPath))
+                {
+                    FileService.DeleteFile(oldPath);
+                }
             }
 
-            // Delete old image
-            string oldImagePath = Path.Combine(_webHostEnvironment.WebRootPath, "assets", "images", menu.Image);
-            if (System.IO.File.Exists(oldImagePath))
+            string fileName = $"{Guid.NewGuid()}-{menuViewModel.Image.FileName}";
+            var newPath = Path.Combine(_webHostEnvironment.WebRootPath, "assets", "images", fileName);
+            using (FileStream stream = new FileStream(newPath, FileMode.Create))
             {
-                System.IO.File.Delete(oldImagePath);
+                await menuViewModel.Image.CopyToAsync(stream);
             }
 
             menu.Image = fileName;
@@ -166,7 +200,6 @@ public class MenuController : Controller
         menu.Price = menuViewModel.Price;
         menu.MenuCategoryId = menuViewModel.MenuCategoryId;
 
-        _context.Menus.Update(menu);
         await _context.SaveChangesAsync();
 
         return RedirectToAction(nameof(Index));

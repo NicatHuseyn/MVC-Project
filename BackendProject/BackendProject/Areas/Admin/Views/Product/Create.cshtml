@@ -16,7 +16,7 @@
                     <form class="forms-sample" method="post" enctype="multipart/form-data">
                         <div class="form-group">
                             <label for="Image">Image</label>
-                            <input type="file" class="form-control" asp-for="Image" />
+                            <input accept=".jpg, .jpeg, .png" type="file" class="form-control" asp-for="Image" />
                             <span asp-validation-for="Image" class="text-danger"></span>
                         </div>
                         <div class="form-group">
@@ -31,7 +31,7 @@
                         </div>
                         <div class="form-group">
                             <label for="exampleInputConfirmPassword1">Rating</label>
-                            <input class="form-control" asp-for="Rating" placeholder="Rating">
+                            <input min="1" max="5" class="form-control" asp-for="Rating" placeholder="Rating">
                             <span asp-validation-for="Rating" class="text-danger"></span>
                         </div>
                         <div class="form-group">

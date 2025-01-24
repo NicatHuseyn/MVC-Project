@@ -137,19 +137,26 @@ namespace BackendProject.Areas.Admin.Controllers
 
             if (productViewModel.Image != null)
             {
-                if (!productViewModel.Image.CheckFileSize(100))
+                if (!productViewModel.Image.CheckFileSize(500))
                 {
                     ModelState.AddModelError("Image", "Faylin hecmi 100 kb-dan kicik olmalidir.");
-                    return View();
+                    return View(productViewModel);
                 }
                 if (!productViewModel.Image.CheckFileType(ContentType.image.ToString()))
                 {
                     ModelState.AddModelError("Image", "Faylin tipi shekil olmalidir.");
-                    return View();
+                    return View(productViewModel);
                 }
 
-                var path = Path.Combine(_webHostEnvironment.WebRootPath, "assets", "images", product.Image);
-                FileService.DeleteFile(path);
+                // Delete old image
+                if (!string.IsNullOrEmpty(product.Image))
+                {
+                    var oldPath = Path.Combine(_webHostEnvironment.WebRootPath, "assets", "Admin", "images", product.Image);
+                    if (System.IO.File.Exists(oldPath))
+                    {
+                        FileService.DeleteFile(oldPath);
+                    }
+                }
 
                 string fileName = $"{Guid.NewGuid()}-{productViewModel.Image.FileName}";
                 var newPath = Path.Combine(_webHostEnvironment.WebRootPath, "assets", "images", fileName);
@@ -157,6 +164,7 @@ namespace BackendProject.Areas.Admin.Controllers
                 {
                     await productViewModel.Image.CopyToAsync(stream);
                 }
+
                 product.Image = fileName;
             }
 

@@ -6,8 +6,5 @@ namespace BackendProject.Models
 	{
 		public int Id { get; set; }
 		public string Social { get; set; }
-
-		public int ChefId { get; set; }
-		public Chef Chef { get; set; }
 	}
 }
