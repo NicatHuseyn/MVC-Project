@@ -1,8 +1,48 @@
 ﻿
 @{
-    ViewData["Title"] = "NonReservation";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewData["Title"] = "Reservation Page";
+}
+Links{
+<link rel="stylesheet" href="~/assets/css/reservation.css" />
 }
 
-<h1>NonReservation</h1>
+<!-- about home start -->
+<section class="about-home">
+    <div class="about-header">
+        <h2>Reservation</h2>
+        <div>
+            <ul>
+                <li class="breadcrumb-begin">
+                    <a href="/">home</a>
+                </li>
+                <li></li>
+                <li class="breadcrumb-end">
+                    <a href="/menu">menu</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</section>
+<!-- about  home end -->
+<!-- reservation section start -->
+<section class="reservation__container">
+    <span class="hero1">
+        <img src="~/assets/image/hero-shape-2-1.png" alt="" />
+    </span>
+    <span class="hero2">
+        <img src="~/assets/image/hero-shape-2-2.png" alt="" />
+    </span>
+    <div class="form_item">
 
+        <h1 style="text-align:center; font-size:50px">We are sorry, all the seats in the restaurant are full.</h1>
+        <button>
+            <a href="/home" style="color:white">Home</a>
+        </button>
+
+    </div>
+</section>
+
+<!-- reservation section end -->
+    Script{
+<script src="~/assets/js/reservation.js"></script>
+    }

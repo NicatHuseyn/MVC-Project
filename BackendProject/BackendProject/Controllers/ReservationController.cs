@@ -62,7 +62,7 @@ namespace BackendProject.Controllers
             _context.Reservations.Add(reservation);
             await _context.SaveChangesAsync();
 
-            return RedirectToAction("ReservationConfirmed", reservation);
+            return RedirectToAction("Index",reservation);
         }
 
 

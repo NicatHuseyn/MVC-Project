@@ -1,0 +1,21 @@
+﻿@model List<Reservation>
+
+@{
+    ViewData["Title"] = "Delete All Reservations";
+}
+
+<div class="content-wrapper">
+    <div class="row">
+        <div class="col-lg-6">
+            <h4>Are you sure you want to delete all reservations?</h4>
+
+            <div style="display: flex; gap: 15px; margin-top: 20px;">
+                <a class="btn btn-info" asp-action="Index">Go Back</a>
+
+                <form method="post" asp-action="DeleteAllReservationConfirmed">
+                    <button type="submit" class="btn btn-danger">Delete All</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

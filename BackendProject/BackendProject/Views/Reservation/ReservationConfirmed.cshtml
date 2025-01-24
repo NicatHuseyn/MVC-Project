@@ -1,32 +1,57 @@
-﻿@model BackendProject.Models.Reservation
+﻿@model Reservation
 
 @{
-    ViewData["Title"] = "ReservationConfirmed";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewData["Title"] = "Reservation Page";
+}
+Links{
+<link rel="stylesheet" href="~/assets/css/reservation.css" />
 }
 
-<section class="reservation__container">
-    <div class="form_item">
-        <h2>RESERVATION FORM</h2>
-
-        <div class="confirmation-message">
-            <h2>Your Reservation is Confirmed!</h2>
-            <p>Thank you for choosing our coffee shop. We are excited to host you!</p>
-            <p><strong>Reservation Details:</strong></p>
+<!-- about home start -->
+<section class="about-home">
+    <div class="about-header">
+        <h2>Reservation</h2>
+        <div>
             <ul>
-                <li><strong>Name:</strong> @Model.Name</li>
-                <li><strong>Phone:</strong> @Model.Phone</li>
-                <li><strong>Seats:</strong> @Model.PersonCount</li>
-                <li><strong>Date:</strong> @Model.ReservationDate.ToString("MM/dd/yyyy")</li>
-                <li><strong>Time:</strong> @Model.ReservationTime.ToString(@"hh\:mm")</li>
-                <li><strong>Email:</strong> @Model.Email</li>
+                <li class="breadcrumb-begin">
+                    <a href="/">home</a>
+                </li>
+                <li></li>
+                <li class="breadcrumb-end">
+                    <a href="/menu">menu</a>
+                </li>
             </ul>
-            <p>We look forward to welcoming you!</p>
-            <div class="confirmation-btn">
-                <a href="/" class="btn btn-primary">Return to Home Page</a>
+        </div>
+    </div>
+</section>
+<!-- about  home end -->
+<!-- reservation section start -->
+<section class="reservation__container" style="pad">
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="card text-center shadow-sm" style="display:flex; justify-content:center; flex-direction:column; text-align:center; ">
+                    <div class="card-header bg-success text-white">
+                        <h1>Reservation Confirmed!</h1>
+                    </div>
+                    <div class="card-body">
+                        <p class="lead" style="font-size:40px">
+                            Your reservation has been successfully confirmed. We look forward to welcoming you!
+                        </p>
+                        <a href="/" class="btn btn-primary mt-3">
+                            Back to Home
+                        </a>
+                    </div>
+                    <div class="card-footer text-muted">
+                        Thank you for choosing our coffee shop!
+                    </div>
+                </div>
             </div>
         </div>
-
     </div>
 </section>
 
+<!-- reservation section end -->
+    Script{
+<script src="~/assets/js/reservation.js"></script>
+    }
